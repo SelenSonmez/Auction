@@ -2,13 +2,18 @@ package com.example.auction;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,11 +28,7 @@ public class RegisterController implements Initializable {
     public TextField txtAddress;
     public User user;
 
-    public void registerButton(ActionEvent actionEvent) {
-        register();
-
-    }
-    public void register(){
+    public void registerButton(ActionEvent actionEvent) throws IOException {
         String name = txtName.getText();
         String surname = txtSurname.getText();
         String password = txtPassword.getText();
@@ -43,7 +44,23 @@ public class RegisterController implements Initializable {
             case 3 -> user = new AgricultureAgency(name,surname,password,contact,address);
         }
         DatabaseConnection.addUser(user);
+        //register();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Register Successful!");
+        alert.setHeaderText("You have successfully registered");
+        alert.setContentText("ID: "+user.getID()+" name: "+user.getName()+" password: "+user.getPassword()+" surname: "+user.getSurname()+
+                " Contact no: "+user.getContactNo()+" address: "+user.getAddress());
+        alert.showAndWait();
 
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 600);
+        Stage stage  =new Stage();
+        stage.setTitle("sa!");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void register(){
     }
 
     @Override
@@ -51,5 +68,5 @@ public class RegisterController implements Initializable {
         comboBox.getItems().addAll("Farmer","Miller","Farming Agency","Agriculture Agency");
         comboBox.getSelectionModel().select("Farmer");
     }
-   
+
 }

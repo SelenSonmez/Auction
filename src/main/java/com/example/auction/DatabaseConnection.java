@@ -1,5 +1,7 @@
 package com.example.auction;
 import java.sql.*;
+import java.util.ArrayList;
+
 import org.sqlite.*;
 public class DatabaseConnection {
     static final SQLiteDataSource dataSource = new SQLiteDataSource();
@@ -55,6 +57,9 @@ public class DatabaseConnection {
             throwables.printStackTrace();
         }
     }
+    //public static ArrayList<User> getUsers(){
+
+    //}
 
 
 }
