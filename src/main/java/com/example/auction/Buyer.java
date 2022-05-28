@@ -1,5 +1,5 @@
 package com.example.auction;
 
 public interface Buyer {
-    void buy();
+    void buy(Product product);
 }

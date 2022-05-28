@@ -11,7 +11,9 @@ public class AgricultureAgency extends User implements Buyer{
     }
 
     @Override
-    public void buy() {
-
+    public void buy(Product product) {
+        Auction auction = new Auction();
+        auction.getAuction().put(this,product);
+        DatabaseConnection.addToAuction(this,product);
     }
 }

@@ -8,6 +8,11 @@ public class User {
     private Long contactNo;
     private String address;
 
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+
     public User(String name, String surname, String password, Long contactNo, String address) {
         this.name = name;
         this.surname = surname;
@@ -70,7 +75,7 @@ public class User {
         this.address = address;
     }
 
-
-
-
+    public String toString(){
+        return name;
+    }
 }

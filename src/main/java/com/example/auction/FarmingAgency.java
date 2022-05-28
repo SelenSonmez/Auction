@@ -11,12 +11,14 @@ public class FarmingAgency extends User implements Buyer,Seller{
     }
 
     @Override
-    public void buy() {
+    public void buy(Product product) {
 
     }
 
     @Override
-    public void sell() {
-
+    public void sell(Product product) {
+        Auction auction = new Auction();
+        auction.getAuction().put(this,product);
+        DatabaseConnection.addToAuction(this,product);
     }
 }

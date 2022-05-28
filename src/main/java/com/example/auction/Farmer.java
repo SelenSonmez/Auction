@@ -9,9 +9,13 @@ public class Farmer extends User implements Seller{
     public Farmer(int ID, String name, String surname, String password, Long contactNo, String address) {
         super(ID, name, surname, password, contactNo, address);
     }
-
     @Override
-    public void sell() {
-
+    public void sell(Product product) {
+        Auction auction = new Auction();
+        auction.getAuction().put(this,product);
+        DatabaseConnection.addToAuction(this,product);
+    }
+    public String toString(){
+        return "Farmer";
     }
 }

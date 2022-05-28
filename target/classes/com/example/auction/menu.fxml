@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="435.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.auction.Menu">
+   <children>
+      <Label fx:id="lblLoggedUser" layoutX="24.0" layoutY="14.0" prefHeight="37.0" prefWidth="106.0" text="Logged in user is: " />
+      <TableView fx:id="tableAuction" layoutX="24.0" layoutY="110.0" prefHeight="225.0" prefWidth="259.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Product" />
+          <TableColumn prefWidth="75.0" text="Price" />
+            <TableColumn prefWidth="75.0" text="Buyer" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tableSpesific" layoutX="318.0" layoutY="110.0" prefHeight="225.0" prefWidth="259.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Product" />
+          <TableColumn prefWidth="75.0" text="Price" />
+            <TableColumn prefWidth="75.0" text="Buyer" />
+        </columns>
+      </TableView>
+      <Label layoutX="32.0" layoutY="66.0" text="Auction">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="318.0" layoutY="66.0" text="Bid">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnSell" layoutX="106.0" layoutY="352.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Sell" />
+      <Button fx:id="btnBid" layoutX="400.0" layoutY="352.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Bid" />
+   </children>
+</AnchorPane>
